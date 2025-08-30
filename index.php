@@ -3,7 +3,7 @@
 Plugin Name: MF FAQ
 Plugin URI: https://github.com/frostkom/mf_faq
 Description:
-Version: 1.0.2
+Version: 1.0.3
 Licence: GPLv2 or later
 Author: Martin Fors
 Author URI: https://martinfors.se

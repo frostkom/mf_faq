@@ -16,7 +16,7 @@ class mf_faq
 
 		$out = "<div".parse_block_attributes(array('class' => "widget faq", 'attributes' => $attributes)).">";
 
-			$result= $wpdb->get_results($wpdb->prepare("SELECT ID, post_title, post_content FROM ".$wpdb->posts." WHERE post_type = %s AND post_status = %s ORDER BY menu_order ASC", $this->post_type, 'publish'));
+			$result = $wpdb->get_results($wpdb->prepare("SELECT ID, post_title, post_content FROM ".$wpdb->posts." WHERE post_type = %s AND post_status = %s ORDER BY menu_order ASC", $this->post_type, 'publish'));
 
 			foreach($result as $r)
 			{
