@@ -53,7 +53,11 @@ class mf_faq
 			'labels' => array(
 				'name' => __("FAQ", 'lang_faq'),
 				'singular_name' => __("FAQ", 'lang_faq'),
-				'menu_name' => __("FAQ", 'lang_faq')
+				'menu_name' => __("FAQ", 'lang_faq'),
+				'all_items' => __('List', 'lang_faq'),
+				'edit_item' => __('Edit', 'lang_faq'),
+				'view_item' => __('View', 'lang_faq'),
+				'add_new_item' => __('Add New', 'lang_faq'),
 			),
 			'public' => false,
 			'show_ui' => true,

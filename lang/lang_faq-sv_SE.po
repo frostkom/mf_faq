@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-02 22:41+0100\n"
+"POT-Creation-Date: 2025-09-12 03:58+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Martin Fors\n"
 "Language-Team: \n"
@@ -26,12 +26,28 @@ msgstr "Frågor & svar"
 msgid "Display FAQ"
 msgstr "Visa frågor & svar"
 
-#: ../include/classes.php:85
-#: ../include/classes.php:121
+#: ../include/classes.php:57
+msgid "List"
+msgstr "Lista"
+
+#: ../include/classes.php:58
+msgid "Edit"
+msgstr "Redigera"
+
+#: ../include/classes.php:59
+msgid "View"
+msgstr "Visa"
+
+#: ../include/classes.php:60
+msgid "Add New"
+msgstr "Lägg till ny"
+
+#: ../include/classes.php:89
+#: ../include/classes.php:125
 msgid "Open on Load"
 msgstr "Öppna från början"
 
-#: ../include/classes.php:115
+#: ../include/classes.php:119
 msgid "Settings"
 msgstr "Inställningar"
 
@@ -85,9 +101,6 @@ msgstr "Inställningar"
 
 #~ msgid "Old"
 #~ msgstr "Gammal"
-
-#~ msgid "New"
-#~ msgstr "Ny"
 
 #~ msgid "Author"
 #~ msgstr "Författare"
