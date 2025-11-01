@@ -2,7 +2,7 @@
 
 class mf_faq
 {
-	var $post_type = 'mf_faq';
+	var $post_type = __CLASS__;
 	var $meta_prefix;
 
 	function __construct()
@@ -103,6 +103,8 @@ class mf_faq
 				switch($column)
 				{
 					case 'open_on_load':
+						do_action('load_font_awesome');
+
 						$post_meta = get_post_meta($post_id, $this->meta_prefix.$column, true);
 
 						echo "<i class='fa ".($post_meta == 'yes' ? "fa-check green" : "fa-times red")." fa-lg'></i>";
