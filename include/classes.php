@@ -20,9 +20,11 @@ class mf_faq
 
 			foreach($result as $r)
 			{
-				$post_meta = get_post_meta($r->ID, $this->meta_prefix.'open_on_load', true);
+				$post_id = $r->ID;
 
-				$out .= get_toggler_container(array('type' => 'start', 'text' => $r->post_title, 'is_open' => ($post_meta == 'yes')))
+				$post_meta = get_post_meta($post_id, $this->meta_prefix.'open_on_load', true);
+
+				$out .= get_toggler_container(array('type' => 'start', 'id' => 'faq_'.$post_id, 'text' => $r->post_title, 'is_open' => ($post_meta == 'yes')))
 					.apply_filters('the_content', $r->post_content)
 				.get_toggler_container(array('type' => 'end'));
 			}
