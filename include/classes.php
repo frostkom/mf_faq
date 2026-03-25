@@ -67,7 +67,7 @@ class mf_faq
 			'show_in_nav_menus' => false,
 			'show_in_rest' => true,
 			'menu_icon' => 'dashicons-format-status',
-			'supports' => array('title', 'editor'),
+			'supports' => array('title', 'editor', 'revisions'),
 			'hierarchical' => true,
 			'has_archive' => false,
 		));
