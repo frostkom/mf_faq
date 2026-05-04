@@ -14,9 +14,18 @@ class mf_faq
 	{
 		global $wpdb;
 
+		if(!isset($attributes['faq_parent'])){		$attributes['faq_parent'] = 0;}
+
 		$out = "<div".parse_block_attributes(array('class' => "widget faq", 'attributes' => $attributes)).">";
 
-			$result = $wpdb->get_results($wpdb->prepare("SELECT ID, post_title, post_content FROM ".$wpdb->posts." WHERE post_type = %s AND post_status = %s ORDER BY menu_order ASC", $this->post_type, 'publish'));
+			$query_where = "";
+
+			if($attributes['faq_parent'] > 0)
+			{
+				$query_where .= " AND post_parent = '".esc_sql($attributes['faq_parent'])."'";
+			}
+
+			$result = $wpdb->get_results($wpdb->prepare("SELECT ID, post_title, post_content FROM ".$wpdb->posts." WHERE post_type = %s AND post_status = %s AND post_content != ''".$query_where." ORDER BY menu_order ASC", $this->post_type, 'publish'));
 
 			foreach($result as $r)
 			{
@@ -41,9 +50,14 @@ class mf_faq
 
 		wp_register_script('script_faq_block_wp', $plugin_include_url."block/script_wp.js", array('wp-blocks', 'wp-element', 'wp-components', 'wp-editor', 'wp-block-editor'), $plugin_version, true);
 
+		$arr_data_parents = [];
+		get_post_children(array('add_choose_here' => true, 'post_type' => $this->post_type, 'allow_depth' => false), $arr_data_parents);
+
 		wp_localize_script('script_faq_block_wp', 'script_faq_block_wp', array(
 			'block_title' => __("FAQ", 'lang_faq'),
 			'block_description' => __("Display FAQ", 'lang_faq'),
+			'faq_parent_label' => __("Parent", 'lang_faq'),
+			'arr_faq_parents' => $arr_data_parents,
 		));
 	}
 
@@ -67,7 +81,7 @@ class mf_faq
 			'show_in_nav_menus' => false,
 			'show_in_rest' => true,
 			'menu_icon' => 'dashicons-format-status',
-			'supports' => array('title', 'editor', 'revisions'),
+			'supports' => array('title', 'editor', 'page-attributes', 'revisions'),
 			'hierarchical' => true,
 			'has_archive' => false,
 		));

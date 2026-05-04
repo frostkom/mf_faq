@@ -3,7 +3,7 @@
 Plugin Name: MF FAQ
 Plugin URI: https://github.com/frostkom/mf_faq
 Description: Add block to display FAQ
-Version: 1.0.8
+Version: 1.0.11
 Licence: GPLv2 or later
 Author: Martin Fors
 Author URI: https://martinfors.se
